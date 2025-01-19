@@ -3,14 +3,20 @@
 > **WARNING** : This mod is only triggered each time you enter a region for the first time of your current run.
 Make sure you set it up properly before starting a new run.
 
-This mod offers you **6 options** you can tweak :
+This mod offers you **10 options** to enable :
 
-* All vanilla lootable buildings can be enabled (instead of there burnt version) [CH, ML, PV, MT]
-* All vanilla doors for fishing huts can be enabled [CH, ML]
-* All bear caves can be enabled (With bones in it)
-* All moose areas can be enabled (With bark scratch marks on trees)
-* All snow shelters and campfires can be enabled
-* Both signal fires in HRV can be enabled [HRV]
+* All vanilla lootable buildings (instead of their burnt version) [CH, ML, PV, MT]
+* All prepper caches full with items 
+
+* All bear caves (With bones in it) [PV, ML]
+* All moose areas (With bark scratch marks on trees) [AC, TWM, PV, DP, MT]
+* All rabbits areas [CH, DP]
+* All stag areas [DP]
+
+* All snow shelters and campfires [AC, TWM, FM]
+* All vanilla doors for fishing huts [CH, ML]
+* All mementos (Interloper/Misery) 
+* Both signal fires [HRV]
 
 ## Installation
 

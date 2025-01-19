@@ -1,5 +1,6 @@
 ﻿using Il2Cpp;
 using HarmonyLib;
+using MelonLoader;
 
 namespace AllRandomLayoutsAtOnce
 {
@@ -20,7 +21,35 @@ namespace AllRandomLayoutsAtOnce
                     }
                 }
             }
+        }
 
+        [HarmonyPatch(typeof(EnableObjectForXPMode), nameof(EnableObjectForXPMode.ShouldDisableForCurrentMode))]
+        internal class EnableObjectForXPMode_ShouldDisableForCurrentMode
+        {
+            private static void Postfix(EnableObjectForXPMode __instance, ref bool __result)
+            {
+                // ---------------   ALL MEMENTOS   -----------------
+                if (__result == true)
+                {
+                    if (__instance.name.ToUpperInvariant().Contains("VISORNOTE") && Settings.settings.mementosEnabled)
+                    {
+                        __result = false;
+                    }
+                }
+            }
+        }
+
+        [HarmonyPatch(typeof(LoadScene), nameof(LoadScene.GetSceneToLoad))]
+        internal class LoadScene_GetSceneToLoad
+        {
+            private static void Postfix(LoadScene __instance, ref string __result)
+            {
+                // ---------------   ALL PREPPER CACHE FULL   -----------------
+                if (__instance.m_SceneToLoad.Contains("PrepperCache") && Settings.settings.cacheEnabled)
+                {
+                    __result = __result.Substring(0, 13);
+                }
+            }
         }
 
         [HarmonyPatch(typeof(RandomSpawnObject), nameof(RandomSpawnObject.ActivateRandomObject))]
@@ -28,8 +57,6 @@ namespace AllRandomLayoutsAtOnce
         {
             internal static bool Prefix(RandomSpawnObject __instance)
             {
-
-
                 if (__instance.m_RerollAfterGameHours == 0)
                 {
                     string regionName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
@@ -176,7 +203,7 @@ namespace AllRandomLayoutsAtOnce
                             return false;
                         }
                     }
-                    else if (__instance.transform.GetParent().name.Contains("Bear") && Settings.settings.bearEnabled)
+                    else if (__instance.transform.GetParent().name.ToUpperInvariant().Contains("BEAR") && Settings.settings.bearEnabled)
                     {
                         // ----------   ALL BEAR CAVE ACTIVE ---------
                         for (int i = 0; i < 4; i++)
@@ -185,7 +212,25 @@ namespace AllRandomLayoutsAtOnce
                         }
                         return true;
                     }
-                    else if (__instance.transform.GetParent().name.Contains("Moose") && Settings.settings.mooseEnabled)
+                    else if (__instance.transform.GetParent().name.ToUpperInvariant().Contains("MOOSE") && Settings.settings.mooseEnabled)
+                    {
+                        // ----------   ALL BEAR CAVE ACTIVE ---------
+                        for (int i = 0; i < 4; i++)
+                        {
+                            __instance.m_NumObjectsToEnableByLevel[i] = __instance.m_ObjectList.Count;
+                        }
+                        return true;
+                    }
+                    else if (__instance.transform.GetParent().name.ToUpperInvariant().Contains("RABBIT") && Settings.settings.rabbitEnabled)
+                    {
+                        // ----------   ALL BEAR CAVE ACTIVE ---------
+                        for (int i = 0; i < 4; i++)
+                        {
+                            __instance.m_NumObjectsToEnableByLevel[i] = __instance.m_ObjectList.Count;
+                        }
+                        return true;
+                    }
+                    else if (__instance.transform.GetParent().name.ToUpperInvariant().Contains("STAG") && Settings.settings.stagEnabled)
                     {
                         // ----------   ALL BEAR CAVE ACTIVE ---------
                         for (int i = 0; i < 4; i++)
