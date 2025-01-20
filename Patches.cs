@@ -29,9 +29,14 @@ namespace AllRandomLayoutsAtOnce
             private static void Postfix(EnableObjectForXPMode __instance, ref bool __result)
             {
                 // ---------------   ALL MEMENTOS   -----------------
+                // NON PERSISTENT WITH SETTINGS CHANGES
                 if (__result == true)
                 {
                     if (__instance.name.ToUpperInvariant().Contains("VISORNOTE") && Settings.settings.mementosEnabled)
+                    {
+                        __result = false;
+                    }
+                    if (__instance.name.ToUpperInvariant().Contains("KEY") && Settings.settings.mementosEnabled)
                     {
                         __result = false;
                     }
@@ -63,13 +68,11 @@ namespace AllRandomLayoutsAtOnce
 
                     // ---------------   ALL BUILDINGS AND ALL POSSIBLE DOORS FOR FISHING HUTS  -----------------
 
-                    if (__instance.name == "RandomSpawnObjectBase_burnt_nightmare" && Settings.settings.buildingEnabled) return false;
-
                     if (regionName == "MountainTownRegion" && __instance.transform.GetParent().name == "Houses_Random" && Settings.settings.buildingEnabled)
                     {
-                        __instance.m_ObjectList[0].SetActive(true);
-                        __instance.m_ObjectList[1].SetActive(true);
-                        __instance.m_ObjectList[2].SetActive(true);
+                        __instance.m_ObjectList[0].gameObject.SetActive(true);
+                        __instance.m_ObjectList[1].gameObject.SetActive(true);
+                        __instance.m_ObjectList[2].gameObject.SetActive(true);
 
                         __instance.m_ObjectList[0].transform.GetChild(2).gameObject.SetActive(false);
                         __instance.m_ObjectList[0].transform.GetChild(4).gameObject.SetActive(false);
@@ -124,9 +127,9 @@ namespace AllRandomLayoutsAtOnce
                         {
                             if (regionName == "LakeRegion")
                             {
-                                __instance.m_ObjectList[0].SetActive(true);
-                                __instance.m_ObjectList[1].SetActive(true);
-                                __instance.m_ObjectList[2].SetActive(true);
+                                __instance.m_ObjectList[0].gameObject.SetActive(true);
+                                __instance.m_ObjectList[1].gameObject.SetActive(true);
+                                __instance.m_ObjectList[2].gameObject.SetActive(true);
 
                                 __instance.m_ObjectList[0].transform.GetChild(0).gameObject.SetActive(false);
                                 __instance.m_ObjectList[0].transform.GetChild(1).gameObject.SetActive(false);
@@ -143,10 +146,10 @@ namespace AllRandomLayoutsAtOnce
                             }
                             else if (regionName == "CoastalRegion")
                             {
-                                __instance.m_ObjectList[0].SetActive(true);
-                                __instance.m_ObjectList[1].SetActive(true);
-                                __instance.m_ObjectList[2].SetActive(true);
-                                __instance.m_ObjectList[3].SetActive(true);
+                                __instance.m_ObjectList[0].gameObject.SetActive(true);
+                                __instance.m_ObjectList[1].gameObject.SetActive(true);
+                                __instance.m_ObjectList[2].gameObject.SetActive(true);
+                                __instance.m_ObjectList[3].gameObject.SetActive(true);
 
                                 __instance.m_ObjectList[0].transform.GetChild(0).gameObject.SetActive(false);
                                 __instance.m_ObjectList[0].transform.GetChild(1).gameObject.SetActive(false);
@@ -183,9 +186,9 @@ namespace AllRandomLayoutsAtOnce
                         }
                         else if (regionName == "RuralRegion" && __instance.transform.GetParent().name == "Town" && Settings.settings.buildingEnabled)
                         {
-                            __instance.m_ObjectList[0].SetActive(true);
-                            __instance.m_ObjectList[1].SetActive(true);
-                            __instance.m_ObjectList[2].SetActive(true);
+                            __instance.m_ObjectList[0].gameObject.SetActive(true);
+                            __instance.m_ObjectList[1].gameObject.SetActive(true);
+                            __instance.m_ObjectList[2].gameObject.SetActive(true);
 
                             __instance.m_ObjectList[0].transform.GetChild(1).gameObject.SetActive(false);
                             __instance.m_ObjectList[0].transform.GetChild(2).gameObject.SetActive(false);
@@ -197,13 +200,97 @@ namespace AllRandomLayoutsAtOnce
                             __instance.m_ObjectList[2].transform.GetChild(1).gameObject.SetActive(false);
                             return false;
                         }
-                        else if (Settings.settings.buildingEnabled)
+                        else if (regionName == "LakeRegion" && __instance.name == "RandomSpawnObjectBase_lakeCabins" && Settings.settings.buildingEnabled)
                         {
-                            __instance.m_OldSaveObject.SetActive(true);
+                            __instance.m_ObjectList[0].gameObject.SetActive(true);
+                            __instance.m_ObjectList[1].gameObject.SetActive(true);
+                            __instance.m_ObjectList[2].gameObject.SetActive(true);
+
+                            __instance.m_ObjectList[0].transform.GetChild(0).gameObject.SetActive(false);
+                            __instance.m_ObjectList[0].transform.GetChild(1).gameObject.SetActive(false);
+
+                            __instance.m_ObjectList[1].transform.GetChild(0).gameObject.SetActive(false);
+                            __instance.m_ObjectList[1].transform.GetChild(1).gameObject.SetActive(false);
+                            __instance.m_ObjectList[1].transform.GetChild(2).gameObject.SetActive(false);
+                            
+                            __instance.m_ObjectList[2].transform.GetChild(0).gameObject.SetActive(false);
+                            __instance.m_ObjectList[2].transform.GetChild(1).gameObject.SetActive(false);
+                            __instance.m_ObjectList[2].transform.GetChild(2).gameObject.SetActive(false);
                             return false;
                         }
+                        else if (regionName == "CoastalRegion" && Settings.settings.buildingEnabled)
+                        {
+                            switch (__instance.name)
+                            {
+                                case "RandomSpawnObjectBase_cabins":
+
+                                    __instance.m_ObjectList[0].gameObject.SetActive(true);
+                                    __instance.m_ObjectList[1].gameObject.SetActive(true);
+                                    __instance.m_ObjectList[2].gameObject.SetActive(false);
+
+                                    __instance.m_ObjectList[0].transform.GetChild(0).gameObject.SetActive(false);
+                                    __instance.m_ObjectList[1].transform.GetChild(0).gameObject.SetActive(false);
+                                    return false;
+
+                                case "RandomSpawnObjectBase_logsort":
+
+                                    __instance.m_ObjectList[0].gameObject.SetActive(true);
+                                    __instance.m_ObjectList[1].gameObject.SetActive(false);
+                                    return false;
+
+                                case "RandomSpawnObjectBase_waterfront":
+
+                                    __instance.m_ObjectList[0].gameObject.SetActive(true);
+                                    __instance.m_ObjectList[1].gameObject.SetActive(true);
+                                    __instance.m_ObjectList[2].gameObject.SetActive(false);
+                                    __instance.m_ObjectList[3].gameObject.SetActive(false);
+
+                                    __instance.m_ObjectList[0].transform.GetChild(0).gameObject.SetActive(false);
+                                    __instance.m_ObjectList[1].transform.GetChild(1).gameObject.SetActive(false);
+                                    __instance.m_ObjectList[1].transform.GetChild(2).gameObject.SetActive(false);
+                                    return false;
+
+                                case "RandomSpawnObjectBase_townSouth":
+
+                                    __instance.m_ObjectList[0].gameObject.SetActive(true);
+                                    __instance.m_ObjectList[1].gameObject.SetActive(true);
+                                    __instance.m_ObjectList[2].gameObject.SetActive(true);
+
+                                    __instance.m_ObjectList[0].transform.GetChild(0).gameObject.SetActive(false);
+                                    __instance.m_ObjectList[0].transform.GetChild(1).gameObject.SetActive(false);
+                                    __instance.m_ObjectList[1].transform.GetChild(0).gameObject.SetActive(false);
+                                    __instance.m_ObjectList[1].transform.GetChild(2).gameObject.SetActive(false);
+                                    __instance.m_ObjectList[2].transform.GetChild(1).gameObject.SetActive(false);
+                                    __instance.m_ObjectList[2].transform.GetChild(2).gameObject.SetActive(false);
+                                    return false;
+
+                                case "RandomSpawnObjectBase_townNorth":
+
+                                    __instance.m_ObjectList[0].gameObject.SetActive(true);
+                                    __instance.m_ObjectList[1].gameObject.SetActive(true);
+                                    __instance.m_ObjectList[2].gameObject.SetActive(false);
+                                    __instance.m_ObjectList[3].gameObject.SetActive(false);
+
+
+                                    __instance.m_ObjectList[0].transform.GetChild(1).gameObject.SetActive(false);
+                                    __instance.m_ObjectList[0].transform.GetChild(2).gameObject.SetActive(false);
+                                    __instance.m_ObjectList[0].transform.GetChild(4).gameObject.SetActive(false);
+                                    __instance.m_ObjectList[1].transform.GetChild(1).gameObject.SetActive(false);
+                                    __instance.m_ObjectList[1].transform.GetChild(4).gameObject.SetActive(false);
+                                    __instance.m_ObjectList[1].transform.GetChild(5).gameObject.SetActive(false);
+                                    return false;
+
+                                case "RandomSpawnObjectBase_burnt_nightmare":
+
+                                    __instance.m_ObjectList[0].gameObject.SetActive(false);
+                                    return false;
+
+                                default:
+                                    break;
+                            }
+                        }
                     }
-                    else if (__instance.transform.GetParent().name.ToUpperInvariant().Contains("BEAR") && Settings.settings.bearEnabled)
+                    /*else if (__instance.transform.GetParent().name.ToUpperInvariant().Contains("BEAR") && Settings.settings.bearEnabled)
                     {
                         // ----------   ALL BEAR CAVE ACTIVE ---------
                         for (int i = 0; i < 4; i++)
@@ -214,7 +301,7 @@ namespace AllRandomLayoutsAtOnce
                     }
                     else if (__instance.transform.GetParent().name.ToUpperInvariant().Contains("MOOSE") && Settings.settings.mooseEnabled)
                     {
-                        // ----------   ALL BEAR CAVE ACTIVE ---------
+                        // ----------   ALL MOOSE ACTIVE ---------
                         for (int i = 0; i < 4; i++)
                         {
                             __instance.m_NumObjectsToEnableByLevel[i] = __instance.m_ObjectList.Count;
@@ -223,7 +310,7 @@ namespace AllRandomLayoutsAtOnce
                     }
                     else if (__instance.transform.GetParent().name.ToUpperInvariant().Contains("RABBIT") && Settings.settings.rabbitEnabled)
                     {
-                        // ----------   ALL BEAR CAVE ACTIVE ---------
+                        // ----------   ALL RABBIT ACTIVE ---------
                         for (int i = 0; i < 4; i++)
                         {
                             __instance.m_NumObjectsToEnableByLevel[i] = __instance.m_ObjectList.Count;
@@ -232,13 +319,13 @@ namespace AllRandomLayoutsAtOnce
                     }
                     else if (__instance.transform.GetParent().name.ToUpperInvariant().Contains("STAG") && Settings.settings.stagEnabled)
                     {
-                        // ----------   ALL BEAR CAVE ACTIVE ---------
+                        // ----------   ALL STAG ACTIVE ---------
                         for (int i = 0; i < 4; i++)
                         {
                             __instance.m_NumObjectsToEnableByLevel[i] = __instance.m_ObjectList.Count;
                         }
                         return true;
-                    }
+                    }*/
                     else if (__instance.transform.GetParent().name.ToUpperInvariant().Contains("SHELTER") && Settings.settings.snowShelterEnabled)
                     {
                         // ----------   ALL SNOW SHELTER AND FIRE CAMPS ACTIVE ---------

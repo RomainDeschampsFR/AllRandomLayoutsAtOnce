@@ -19,7 +19,7 @@ namespace AllRandomLayoutsAtOnce
         
         ///////////////   BUILDINGS   //////////////////
         
-        [Section("Buildings")]
+        [Section("Interior Scenes")]
 
         [Name("All buildings")]
         [Description("All vanilla lootable buildings will be active (instead of their burnt version)")]
@@ -30,7 +30,7 @@ namespace AllRandomLayoutsAtOnce
         public bool cacheEnabled = true;
 
         ///////////////   ANIMALS   //////////////////
-        
+        /*
         [Section("Animals")]
 
         [Name("All bear caves")]
@@ -47,26 +47,27 @@ namespace AllRandomLayoutsAtOnce
 
         [Name("All stag areas")]
         [Description("All stag areas will be active")]
-        public bool stagEnabled = true;
+        public bool stagEnabled = true;*/
 
         ///////////////   OTHERS   //////////////////
-
+        
         [Section("Others")]
 
         [Name("All fishing hut doors")]
-        [Description("All vanilla door for fishing huts will be active")]
+        [Description("All vanilla door for fishing huts will be active.")]
         public bool doorEnabled = true;
 
         [Name("All snow shelters and campfires")]
-        [Description("All snow shelters and campfires will be active")]
+        [Description("All snow shelters and campfires will be active.")]
         public bool snowShelterEnabled = true;
 
         [Name("All mementos")]
-        [Description("All mementos will be active")]
+        [Description("All mementos in interloper/misery will be active.\n" +
+            "Prohibited item won't spawn.")]
         public bool mementosEnabled = true;
 
         [Name("All signal fires in HRV")]
-        [Description("Both signal fires in HRV will be active")]
+        [Description("Both signal fires in HRV will be active.")]
         public bool signalEnabled = true;
     }
 }
