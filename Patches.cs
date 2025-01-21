@@ -44,6 +44,18 @@ namespace AllRandomLayoutsAtOnce
             }
         }
 
+        [HarmonyPatch(typeof(LoadScene), nameof(LoadScene.Start))]
+        internal class LoadScene_Start
+        {
+            private static void Postfix(LoadScene __instance)
+            {
+                if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorDMilton_Prefab")
+                {
+                    __instance.m_SceneCanBeInstanced = true;
+                }
+            }
+        }
+
         [HarmonyPatch(typeof(LoadScene), nameof(LoadScene.GetSceneToLoad))]
         internal class LoadScene_GetSceneToLoad
         {
