@@ -62,9 +62,10 @@ namespace AllRandomLayoutsAtOnce
             private static void Postfix(LoadScene __instance, ref string __result)
             {
                 // ---------------   ALL PREPPER CACHE FULL   -----------------
+                if (__instance.m_SceneToLoad == "PrepperCacheEmpty") return;
                 if (__instance.m_SceneToLoad.Contains("PrepperCache") && Settings.settings.cacheEnabled)
                 {
-                    __result = __result.Substring(0, 13);
+                     __result = __result.Substring(0, 13);
                 }
             }
         }

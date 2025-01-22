@@ -243,55 +243,7 @@ namespace AllRandomLayoutsAtOnce
                     bunker.transform.GetChild(2).gameObject.SetActive(false);
                     bunker.transform.GetChild(3).gameObject.SetActive(false);
                 }
-            }
-            
-             ,
-		{
-			"type": "mod",
-			"version": "1.1.0",
-			"name": "AllRandomLayoutsAtOnce",
-			"displayName": "All Random Layouts At Once",
-			"author": "Romain",
-			"previousAuthors": "",
-			"released": "2025-01-18",
-			"updated": "2025-01-19",
-			"downloadURL": "https://github.com/RomainDeschampsFR/AllRandomLayoutsAtOnce/releases/download/1.1.0/AllRandomLayoutsAtOnce.dll",
-			"modURL": "https://github.com/RomainDeschampsFR/AllRandomLayoutsAtOnce",
-			"description": "This mod allows you to combine all random layouts in the same run.",
-			"tags": "",
-			"categories": [
-				"Quality of Life",
-				"Base Building",
-				"Cheats",
-				"Misc"
-			],
-			"gameversion": [
-				"vanilla"
-			],
-			"images": [],
-			"dependencies": [
-				"ModSettings"
-			],
-			"status": {
-				"working": true,
-				"beta": false,
-				"patchnotes": "",
-				"notes": "Allow to enable :\n* All vanilla lootable buildings\n* All prepper caches full\n\n* All bear caves\n* All moose areas\n* All rabbits areas\n* All stag areas\n\n* All snow shelters and campfires\n* All vanilla doors for fishing huts\n* All mementos\n* Both signal fires in HRV",
-				"issues": ""
-			},
-			"testedon": {
-				"tldversion": "2.39",
-				"mlversion": "6.6"
-			},
-			"updater": {
-				"enable": true,
-				"downloads": []
-			},
-			"aliases": [],
-			"replaces": []
-		}*/
-
-
+            }*/
         }
     }
 }
