@@ -8,7 +8,7 @@ This mod offers you **6 options** to enable :
 * All vanilla lootable buildings (instead of their burnt version) [CH, ML, PV, MT]
 * All prepper caches full with items/furnitures 
 
-* All snow shelters and campfires [AC, TWM, FM]
+* All snow shelters and campfires [AC, TWM, FM, HRV, BR, ...]
 * All vanilla doors for fishing huts [CH, ML]
 * All mementos (Interloper/Misery) 
 * Both signal fires [HRV]

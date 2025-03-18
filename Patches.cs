@@ -49,7 +49,35 @@ namespace AllRandomLayoutsAtOnce
         {
             private static void Postfix(LoadScene __instance)
             {
+                if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorAMilton_Prefab")
+                {
+                    __instance.m_SceneCanBeInstanced = true;
+                }
+                if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorBMilton_Prefab")
+                {
+                    __instance.m_SceneCanBeInstanced = true;
+                }
+                if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorCMilton_Prefab")
+                {
+                    __instance.m_SceneCanBeInstanced = true;
+                }
                 if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorDMilton_Prefab")
+                {
+                    __instance.m_SceneCanBeInstanced = true;
+                }
+                if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorFMilton_Prefab_1")
+                {
+                    __instance.m_SceneCanBeInstanced = true;
+                }
+                if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorFMilton_Prefab_2")
+                {
+                    __instance.m_SceneCanBeInstanced = true;
+                }
+                if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorHMilton_Prefab (2)")
+                {
+                    __instance.m_SceneCanBeInstanced = true;
+                }
+                if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorHMilton_Prefab (3)")
                 {
                     __instance.m_SceneCanBeInstanced = true;
                 }
