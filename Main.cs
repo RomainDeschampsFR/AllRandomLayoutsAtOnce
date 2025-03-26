@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AllRandomLayoutsAtOnce
 {
-    public class Implementation : MelonMod
+    public class Main : MelonMod
     {
 
         public override void OnInitializeMelon()
