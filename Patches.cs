@@ -49,37 +49,29 @@ namespace AllRandomLayoutsAtOnce
         {
             private static void Postfix(LoadScene __instance)
             {
-                if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorAMilton_Prefab")
+                string name = __instance?.gameObject?.transform?.parent?.parent?.name;
+
+                if (name != null)
                 {
-                    __instance.m_SceneCanBeInstanced = true;
-                }
-                if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorBMilton_Prefab")
-                {
-                    __instance.m_SceneCanBeInstanced = true;
-                }
-                if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorCMilton_Prefab")
-                {
-                    __instance.m_SceneCanBeInstanced = true;
-                }
-                if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorDMilton_Prefab")
-                {
-                    __instance.m_SceneCanBeInstanced = true;
-                }
-                if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorFMilton_Prefab_1")
-                {
-                    __instance.m_SceneCanBeInstanced = true;
-                }
-                if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorFMilton_Prefab_2")
-                {
-                    __instance.m_SceneCanBeInstanced = true;
-                }
-                if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorHMilton_Prefab (2)")
-                {
-                    __instance.m_SceneCanBeInstanced = true;
-                }
-                if (__instance.gameObject.transform.GetParent().GetParent().name == "STRSPAWN_HouseExteriorHMilton_Prefab (3)")
-                {
-                    __instance.m_SceneCanBeInstanced = true;
+                    string[] validNames = {
+                    "STRSPAWN_HouseExteriorAMilton_Prefab",
+                    "STRSPAWN_HouseExteriorBMilton_Prefab",
+                    "STRSPAWN_HouseExteriorCMilton_Prefab",
+                    "STRSPAWN_HouseExteriorDMilton_Prefab",
+                    "STRSPAWN_HouseExteriorFMilton_Prefab_1",
+                    "STRSPAWN_HouseExteriorFMilton_Prefab_2",
+                    "STRSPAWN_HouseExteriorHMilton_Prefab (2)",
+                    "STRSPAWN_HouseExteriorHMilton_Prefab (3)"
+                    };
+
+                    foreach (var validName in validNames)
+                    {
+                        if (name == validName)
+                        {
+                            __instance.m_SceneCanBeInstanced = true;
+                            break;
+                        }
+                    }
                 }
             }
         }
